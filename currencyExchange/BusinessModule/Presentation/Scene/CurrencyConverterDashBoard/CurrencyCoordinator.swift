@@ -46,7 +46,9 @@ class CurrencyCoordinator: Coordinate {
                vc.selectedType = viewController?.viewModel?.selectedPaymentType ?? ""
                
                vc.handleTap = { typeData in
-                   self.viewController?.viewModel?.selectedPaymentType = typeData
+                   if !typeData.isEmpty {
+                       self.viewController?.viewModel?.selectedPaymentType = typeData
+                   }
                }
                
                viewController?.present(vc, animated: true, completion: nil)
