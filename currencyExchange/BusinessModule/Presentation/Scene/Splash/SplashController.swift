@@ -9,12 +9,20 @@ import UIKit
 
 class SplashController: UIViewController {
 
+@IBOutlet weak var splashScreenLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        splashScreenLabel.accessibilityIdentifier = "SplashScreenLabel"
+
 
         DispatchQueue.main.asyncAfter(deadline: .now()+5, execute: {
             self.moveToCurrencyScreen()
         })
+        
+
         // Do any additional setup after loading the view.
     }
 

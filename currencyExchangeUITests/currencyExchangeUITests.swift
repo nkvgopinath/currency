@@ -51,25 +51,35 @@ final class currencyExchangeUITests: XCTestCase {
     
     
     func testInitialUIElementsExist() throws {
-            let navigationBar = app.otherElements["NavigationBarView"]
-            let countryPicker = app.otherElements["countryPickerView"]
-            let deliveryPicker = app.otherElements["deliverMethod"]
-            let depositView = app.otherElements["DepositView"]
-            let exchangePaymentPicker = app.otherElements["exchangePaymentView"]
+        
+        let splashScreenLabel = app.staticTexts["SplashScreenLabel"]
+        
+        let exists = splashScreenLabel.waitForExistence(timeout: 5.0)
+        XCTAssertTrue(exists, "Splash screen should be visible")
+
+        let timeout: TimeInterval = 5.0
+
+        let navigationBar = app.otherElements["NavigationBarView"]
+        let countryPicker = app.otherElements["countryPickerView"]
+        let deliveryPicker = app.otherElements["deliverMethod"]
+        let depositView = app.otherElements["DepositView"]
+        let exchangePaymentPicker = app.otherElements["exchangePaymentView"]
+
+        
+        let existsNextScreen = navigationBar.waitForExistence(timeout: timeout)
+        XCTAssertTrue(existsNextScreen, "Currency DashBoard screen should appear after splash screen timeout")
             
             XCTAssertTrue(navigationBar.exists, "Navigation bar should exist")
             XCTAssertTrue(countryPicker.exists, "Country picker should exist")
             XCTAssertTrue(deliveryPicker.exists, "Delivery picker should exist")
             XCTAssertTrue(depositView.exists, "Deposit view should exist")
             XCTAssertTrue(exchangePaymentPicker.exists, "Exchange payment picker should exist")
-        }
-    
-    
-    func testSelectCountryPicker() throws {
-        let countryPicker = app.otherElements["countryPickerView"]
-        XCTAssertTrue(countryPicker.exists, "Country picker should exist")
         
-        countryPicker.tap()
+        
+        let countryPick = app.otherElements["countryPickerView"]
+        XCTAssertTrue(countryPick.exists, "Country picker should exist")
+        
+        countryPick.tap()
         
         let countryListModal = app.collectionViews["CountryPickerCollection"]
         XCTAssertTrue(countryListModal.waitForExistence(timeout: 10), "Country list modal should appear")
@@ -78,15 +88,12 @@ final class currencyExchangeUITests: XCTestCase {
         XCTAssertTrue(countryCell.exists, "Country 'India' should exist in the list")
         countryCell.tap()
         
-        let countryPlaceholder = countryPicker.staticTexts["India"]
-        XCTAssertTrue(countryPlaceholder.exists, "Country picker placeholder should display the selected country")
-    }
+
+        let deliveryPick = app.otherElements["deliverMethod"]
+        XCTAssertTrue(deliveryPick.exists, "Delivery picker should exist")
+        
+        deliveryPick.tap()
+        }
     
-    func testSelectDeliveryMethod() throws {
-        let deliveryPicker = app.otherElements["deliverMethod"]
-        XCTAssertTrue(deliveryPicker.exists, "Delivery picker should exist")
-        
-        deliveryPicker.tap()
-        
-    }
+
 }

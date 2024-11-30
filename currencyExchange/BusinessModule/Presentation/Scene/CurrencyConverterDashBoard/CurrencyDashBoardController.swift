@@ -38,6 +38,8 @@ class CurrencyDashBoardController: UIViewController {
         navigation.accessibilityIdentifier = "NavigationBarView"
         depositView.accessibilityIdentifier = "DepositView"
         exchangePaymentView.accessibilityIdentifier = "exchangePaymentView"
+        
+
 
     }
     

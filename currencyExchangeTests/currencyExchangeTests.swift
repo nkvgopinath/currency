@@ -12,84 +12,100 @@ import Combine
 
 final class currencyExchangeTests: XCTestCase {
 
-    var app: XCUIApplication!
+    var repository: CountryRepository!
+    var mockAPIClient: MockAPIClient!
+
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
         
-        app = XCUIApplication()
-        app.launch()
+        mockAPIClient = MockAPIClient()
+        repository = CountryRepository(mockAPIClient)
+
         
-        continueAfterFailure = false
-
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
+        repository = nil
+        mockAPIClient = nil
+
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    @MainActor
     func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
+        // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Any test you write for XCTest can be annotated as throws and async.
+        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
+        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
 
-    @MainActor
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
+    func testPerformanceExample() throws {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+        }
+    }
+    
+    
+    func testGetCountryListSuccess() {
+           mockAPIClient.shouldReturnError = false
+           let expectation = self.expectation(description: "Country List Loaded Successfully")
+           
+        repository.getCountryList { result in
+               switch result {
+               case .success(let countries):
+                   XCTAssertGreaterThan(countries.count, 0)
+               case .failure(let error):
+                   XCTFail("Expected success but got failure: \(error.localizedDescription)")
+               }
+               expectation.fulfill()
+           }
+           
+           waitForExpectations(timeout: 7, handler: nil)
+       }
+    
+    
+    
+    
+    func testGetCurrentExchangeRateSuccess() {
+           mockAPIClient.shouldReturnError = false
+           let expectation = self.expectation(description: "Exchange Rate Loaded Successfully")
+           
+        repository.getCurrentExchangeRate { result in
+               switch result {
+               case .success(let exchangeRate):
+                   XCTAssertEqual(exchangeRate.result, "success")
+               case .failure(let error):
+                   XCTFail("Expected success but got failure: \(error.localizedDescription)")
+               }
+               expectation.fulfill()
+           }
+           
+           waitForExpectations(timeout: 1, handler: nil)
+       }
+
+}
+
+
+
+class MockAPIClient: APIClient {
+    var shouldReturnError: Bool = false
+    
+    func perform<T: Decodable>(_ request: APIRequest, _ model: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Network error"])))
+        } else {
+            if model == [CountriesModel].self {
+                completion(.success([model] as! T))
+            } else if model == ExchangeRateModel.self {
+                completion(.success(model as! T))
             }
         }
     }
-    
-    
-    func testInitialUIElementsExist() throws {
-            let navigationBar = app.otherElements["NavigationBarView"]
-            let countryPicker = app.otherElements["countryPickerView"]
-            let deliveryPicker = app.otherElements["deliverMethod"]
-            let depositView = app.otherElements["DepositView"]
-            let exchangePaymentPicker = app.otherElements["exchangePaymentView"]
-            
-            XCTAssertTrue(navigationBar.exists, "Navigation bar should exist")
-            XCTAssertTrue(countryPicker.exists, "Country picker should exist")
-            XCTAssertTrue(deliveryPicker.exists, "Delivery picker should exist")
-            XCTAssertTrue(depositView.exists, "Deposit view should exist")
-            XCTAssertTrue(exchangePaymentPicker.exists, "Exchange payment picker should exist")
-        }
-    
-    
-    func testSelectCountryPicker() throws {
-        let countryPicker = app.otherElements["countryPickerView"]
-        XCTAssertTrue(countryPicker.exists, "Country picker should exist")
-        
-        countryPicker.tap()
-        
-        let countryListModal = app.collectionViews["CountryPickerCollection"]
-        XCTAssertTrue(countryListModal.waitForExistence(timeout: 10), "Country list modal should appear")
-        
-        let countryCell = countryListModal.cells.staticTexts["India"]
-        XCTAssertTrue(countryCell.exists, "Country 'India' should exist in the list")
-        countryCell.tap()
-        
-        let countryPlaceholder = countryPicker.staticTexts["India"]
-        XCTAssertTrue(countryPlaceholder.exists, "Country picker placeholder should display the selected country")
-    }
-    
-    func testSelectDeliveryMethod() throws {
-        let deliveryPicker = app.otherElements["deliverMethod"]
-        XCTAssertTrue(deliveryPicker.exists, "Delivery picker should exist")
-        
-        deliveryPicker.tap()
-        
-    }
 }
+
+
+
+
+
