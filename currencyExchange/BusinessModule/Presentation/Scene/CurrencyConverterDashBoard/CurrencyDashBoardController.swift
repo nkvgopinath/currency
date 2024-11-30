@@ -29,7 +29,13 @@ class CurrencyDashBoardController: UIViewController {
         super.viewDidLoad()
         self.basicThemeSetup()
         self.regiesterTest()
-
+        self.checkRootDetection()
+    }
+    
+    func checkRootDetection(){
+        if UIDevice().isJailBroken {
+            self.showAlert(message: "Device Issue", title: "This is jail broken device")
+        }
     }
     
     func regiesterTest(){
