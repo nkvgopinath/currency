@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeliveryMethodController" customModule="currency" customModuleProvider="target">
+            <connections>
+                <outlet property="bankView" destination="GJH-Sh-uQo" id="kFk-tl-r9z"/>
+                <outlet property="cashView" destination="bgG-L9-hBY" id="Tcf-z1-JCG"/>
+                <outlet property="emptyView" destination="hOF-fp-KY0" id="n2D-os-5gm"/>
+                <outlet property="mobileView" destination="zVI-dt-SPc" id="BFk-WC-Mx0"/>
+                <outlet property="stackView" destination="YSE-m9-RtX" id="fGZ-MA-5Z2"/>
+                <outlet property="view" destination="iN0-l3-epB" id="i47-KL-0FW"/>
+                <outlet property="viewHolder" destination="e5S-zJ-WA9" id="Sab-Pa-gfP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yMb-wk-D33">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOF-fp-KY0">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="453"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5S-zJ-WA9">
+                            <rect key="frame" x="0.0" y="458" width="393" height="335"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YSE-m9-RtX">
+                                    <rect key="frame" x="30" y="10" width="333" height="280"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Select Delivery Method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvQ-Ys-US1">
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="55"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="B6L-ji-5pQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJH-Sh-uQo" customClass="DeliveryMethodView" customModule="currency" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="75" width="333" height="55"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgG-L9-hBY" customClass="DeliveryMethodView" customModule="currency" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="150" width="333" height="55"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVI-dt-SPc" customClass="DeliveryMethodView" customModule="currency" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="225" width="333" height="55"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="YSE-m9-RtX" firstAttribute="top" secondItem="e5S-zJ-WA9" secondAttribute="top" constant="10" id="5DG-mF-5K3"/>
+                                <constraint firstAttribute="bottom" secondItem="YSE-m9-RtX" secondAttribute="bottom" constant="45" id="64U-wx-wSh"/>
+                                <constraint firstAttribute="trailing" secondItem="YSE-m9-RtX" secondAttribute="trailing" constant="30" id="B8a-qD-Ex0"/>
+                                <constraint firstItem="YSE-m9-RtX" firstAttribute="leading" secondItem="e5S-zJ-WA9" secondAttribute="leading" constant="30" id="dGb-vN-v4s"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="yMb-wk-D33" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FaE-YY-HAC"/>
+                <constraint firstItem="yMb-wk-D33" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="JEy-h5-5De"/>
+                <constraint firstAttribute="bottom" secondItem="yMb-wk-D33" secondAttribute="bottom" id="YIk-6f-EIz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yMb-wk-D33" secondAttribute="trailing" id="Zgc-1p-W3Z"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="81.679389312977094" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

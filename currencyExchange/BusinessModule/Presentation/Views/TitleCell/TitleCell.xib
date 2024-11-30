@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TitleCell" id="gTV-IL-0wX" customClass="TitleCell" customModule="currency" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="243"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="362" height="243"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvO-H3-qCn">
+                        <rect key="frame" x="10" y="0.0" width="342" height="243"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sD5-9w-xoZ">
+                                <rect key="frame" x="0.0" y="0.0" width="41" height="243"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phillipines" translatesAutoresizingMaskIntoConstraints="NO" id="fl2-Ch-ozN">
+                                        <rect key="frame" x="2" y="103" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fl2-Ch-ozN" secondAttribute="height" multiplier="1:1" id="jty-bj-fUd"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fl2-Ch-ozN" firstAttribute="width" secondItem="sD5-9w-xoZ" secondAttribute="width" multiplier="0.9" id="V5g-Zi-baa"/>
+                                    <constraint firstItem="fl2-Ch-ozN" firstAttribute="centerX" secondItem="sD5-9w-xoZ" secondAttribute="centerX" id="fDP-K9-bGf"/>
+                                    <constraint firstItem="fl2-Ch-ozN" firstAttribute="centerY" secondItem="sD5-9w-xoZ" secondAttribute="centerY" id="gW8-uI-A6g"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fl-PK-0jC">
+                                <rect key="frame" x="41" y="0.0" width="301" height="243"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="sD5-9w-xoZ" firstAttribute="width" secondItem="mvO-H3-qCn" secondAttribute="width" multiplier="0.12" id="tEz-rK-SCI"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mvO-H3-qCn" secondAttribute="trailing" constant="10" id="CI8-Cs-0ug"/>
+                <constraint firstAttribute="bottom" secondItem="mvO-H3-qCn" secondAttribute="bottom" id="YcQ-M9-isl"/>
+                <constraint firstItem="mvO-H3-qCn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="qlL-Iy-rOS"/>
+                <constraint firstItem="mvO-H3-qCn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="we5-L8-axn"/>
+            </constraints>
+            <size key="customSize" width="362" height="243"/>
+            <connections>
+                <outlet property="imageHolderView" destination="sD5-9w-xoZ" id="6lH-D0-Dg4"/>
+                <outlet property="imageView" destination="fl2-Ch-ozN" id="53g-xR-LtJ"/>
+                <outlet property="titleLable" destination="5fl-PK-0jC" id="svW-2e-JSH"/>
+            </connections>
+            <point key="canvasLocation" x="261.06870229007632" y="87.676056338028175"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="phillipines" width="64" height="64"/>
+    </resources>
+</document>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageWithTileView" customModule="currency" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="sWb-zh-QfZ"/>
+                <outlet property="imageView" destination="5pY-6x-anw" id="NFR-xT-YvZ"/>
+                <outlet property="tileLabel" destination="8jl-9A-rIC" id="dUE-Ym-6wq"/>
+                <outlet property="titleView" destination="Xin-DV-g5a" id="Jqb-wV-kUI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="349"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="enx-uQ-ITz">
+                    <rect key="frame" x="5" y="5" width="332" height="339"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqq-bW-R9T">
+                            <rect key="frame" x="0.0" y="0.0" width="332" height="237.33333333333334"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="india" translatesAutoresizingMaskIntoConstraints="NO" id="5pY-6x-anw">
+                                    <rect key="frame" x="71" y="23.666666666666671" width="190" height="190"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="5pY-6x-anw" secondAttribute="height" multiplier="1:1" id="DnP-Tq-gb3"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="5pY-6x-anw" firstAttribute="height" secondItem="aqq-bW-R9T" secondAttribute="height" multiplier="0.8" id="2JD-Rh-Icq"/>
+                                <constraint firstItem="5pY-6x-anw" firstAttribute="centerY" secondItem="aqq-bW-R9T" secondAttribute="centerY" id="RSG-gN-k0Z"/>
+                                <constraint firstItem="5pY-6x-anw" firstAttribute="centerX" secondItem="aqq-bW-R9T" secondAttribute="centerX" id="Y16-VL-Koz"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xin-DV-g5a">
+                            <rect key="frame" x="0.0" y="237.33333333333334" width="332" height="101.66666666666666"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label asdnksvfdsjhfvhjs hsdfhsb fbdsjbjsvh alkdjahsdd ajsdjbad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jl-9A-rIC">
+                                    <rect key="frame" x="0.0" y="39.999999999999972" width="332" height="13.333333333333336"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="8jl-9A-rIC" firstAttribute="centerX" secondItem="Xin-DV-g5a" secondAttribute="centerX" id="2a7-fR-Olk"/>
+                                <constraint firstItem="8jl-9A-rIC" firstAttribute="centerY" secondItem="Xin-DV-g5a" secondAttribute="centerY" constant="-4" id="8Bk-Eb-fSA"/>
+                                <constraint firstAttribute="trailing" secondItem="8jl-9A-rIC" secondAttribute="trailing" id="UfM-He-KMN"/>
+                                <constraint firstItem="8jl-9A-rIC" firstAttribute="leading" secondItem="Xin-DV-g5a" secondAttribute="leading" id="Y0b-dj-RYR"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="aqq-bW-R9T" firstAttribute="height" secondItem="enx-uQ-ITz" secondAttribute="height" multiplier="0.7" id="UUq-1W-x9B"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="enx-uQ-ITz" secondAttribute="trailing" constant="5" id="TAx-x7-6bV"/>
+                <constraint firstItem="enx-uQ-ITz" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="iz5-d5-FP5"/>
+                <constraint firstItem="enx-uQ-ITz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="kSt-ri-CGv"/>
+                <constraint firstAttribute="bottom" secondItem="enx-uQ-ITz" secondAttribute="bottom" constant="5" id="rBB-Xx-q1U"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-82.44274809160305" y="-94.014084507042256"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="india" width="64" height="64"/>
+    </resources>
+</document>
